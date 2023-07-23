@@ -1,0 +1,78 @@
+<mvc:View controllerName="uploadProjectDemand.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page id="Page">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Label text="Upload Demand Template(Materials)"/>
+						</contentLeft>
+						<contentMiddle>
+							<u:FileUploader id="FileUpId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx" icon="sap-icon://upload"
+								iconFirst="true" style="Emphasized" change="onUpload"/>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<Table items="{localModel>/items}">
+						<columns>
+							<Column>
+								<Label text="Demand Name"/>
+							</Column>
+							<Column>
+								<Label text="Material Code"/>
+							</Column>
+							<Column>
+								<Label text="WBS"/>
+							</Column>
+							<Column>
+								<Label text="Plant"/>
+							</Column>
+							<Column>
+								<Label text="Storage Location"/>
+							</Column>
+							<Column>
+								<Label text="Demand Type"/>
+							</Column>
+							<Column>
+								<Label text="Quantity"/>
+							</Column>
+							<Column>
+								<Label text="Date Alignment"/>
+							</Column>
+							<Column>
+								<Label text="Start Date"/>
+							</Column>
+							<Column>
+								<Label text="End Date"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{localModel>DemandName}"/>
+									<Text text="{localModel>MaterialCode}"/>
+									<Text text="{localModel>WBS}"/>
+									<Text text="{localModel>Plant}"/>
+									<Text text="{localModel>StorageLocation}"/>
+									<Text text="{localModel>DemandType}"/>
+									<Text text="{localModel>QTY}"/>
+									<Text text="{localModel>DateAlign}"/>
+									<Text text="{localModel>StartDate}"/>
+									<Text text="{localModel>EndDate}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button type="Accept" text="Save Demands" press="saveDemands"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
